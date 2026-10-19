@@ -11,7 +11,9 @@ GitHub Actions de `Memories` sube aquí, en **Releases**, cada versión compilad
   descargar e invitar (`Memories.apk`, `Memories-Mac.dmg`, `Memories-Windows.msi`;
   `memoriessync.vercel.app/descargar`, `/mac` y `/windows` apuntan aquí).
 
-**Tiene que ser público.** Las apps descargan sin cuenta de GitHub: si el
-repositorio es privado, GitHub responde «404» y en el móvil sale
-«No se pudo comprobar (error 404)» al buscar actualizaciones (y fallan los
-enlaces de descarga).
+**Puede ser privado.** Las apps no descargan de aquí directamente sino por
+`memoriessync.vercel.app/d/<versión>/<archivo>`, que entra en GitHub con el token
+`DESCARGAS_TOKEN` (variable de entorno del proyecto de Vercel, con permiso
+*Contents: Read-only* sobre este repositorio). Si esa variable no está puesta,
+el servidor manda al enlace público de GitHub y entonces el repositorio sí
+tiene que ser público (si no, sale «error 404» al buscar actualizaciones).
